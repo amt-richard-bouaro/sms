@@ -1,4 +1,4 @@
-package com.amalitech.sms.services.utils;
+package com.amalitech.sms.utils;
 
 import com.amalitech.sms.models.Author;
 

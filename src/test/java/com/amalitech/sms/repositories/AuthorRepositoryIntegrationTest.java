@@ -1,8 +1,8 @@
-package com.amalitech.sms.services.integration;
+package com.amalitech.sms.repositories;
 
 import com.amalitech.sms.models.Author;
-import com.amalitech.sms.services.AuthorService;
-import com.amalitech.sms.services.utils.AuthorTestUtils;
+import com.amalitech.sms.repositories.AuthorRepository;
+import com.amalitech.sms.utils.AuthorTestUtils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
-public class AuthorlntegrationTest {
+public class AuthorRepositoryIntegrationTest {
 
 
-    private final AuthorService underTest;
+    private final AuthorRepository underTest;
 
     @Autowired
-    public AuthorlntegrationTest(final AuthorService underTest) {
+    public AuthorRepositoryIntegrationTest(final AuthorRepository underTest) {
         this.underTest = underTest;
     }
 
@@ -32,8 +32,8 @@ public class AuthorlntegrationTest {
     public void testThatAuthorCanBeCreatedAndRecalled(){
         Author author = AuthorTestUtils.createTestAuthorA();
 
-        underTest.create(author);
-        Optional<Author> result = underTest.findSingleAuthor(author.getAuthor_id());
+        underTest.save(author);
+        Optional<Author> result = underTest.findById(author.getAuthor_id());
 
         assertThat(result).isPresent();
         assertThat(result.get().getAuthor_id()).isEqualTo(author.getAuthor_id());
@@ -44,12 +44,12 @@ public class AuthorlntegrationTest {
     @Test
     public void testThatMultipleAuthorsCanBeCreatedAndRecalled(){
         Author authorA = AuthorTestUtils.createTestAuthorA();
-        underTest.create(authorA);
+        underTest.save(authorA);
         Author authorB = AuthorTestUtils.createTestAuthorB();
-        underTest.create(authorB);
+        underTest.save(authorB);
         Author authorC = AuthorTestUtils.createTestAuthorC();
-        underTest.create(authorC);
-        List<Author> result = underTest.findMany();
+        underTest.save(authorC);
+        Iterable<Author> result = underTest.findAll();
 
         assertThat(result).hasSize(3);
 //        assertThat(result).isEqualTo(authorA)

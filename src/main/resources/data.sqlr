@@ -1,6 +1,0 @@
-
-INSERT INTO widgets (id, name, purpose) VALUES (1,'Widget A', 'Used for testing purposes.'),
-(2,'Widget B', 'Used for entertainment purposes.'),
-(3,'Widget C', 'Used for productivity purposes.'),
-(4,'Widget D', 'Used for outdoor purposes.'),
-(5,'Widget E', 'Used for branding purposes.');

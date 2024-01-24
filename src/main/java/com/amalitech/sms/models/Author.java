@@ -1,12 +1,17 @@
 package com.amalitech.sms.models;
 
+import jakarta.persistence.*;
 import lombok.Builder;
 
 import java.time.LocalDate;
 
 
 @Builder
+@Entity
+@Table(name="author")
 public class Author {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "author_id_seq")
         private Long author_id;
         private String first_name;
         private String last_name;

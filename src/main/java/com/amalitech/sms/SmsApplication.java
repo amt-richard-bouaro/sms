@@ -12,21 +12,9 @@ import javax.sql.DataSource;
 @Log
 public class SmsApplication {
 
-//	private final DataSource dataSource;
-//
-//	public SmsApplication(DataSource dataSource) {
-//		this.dataSource = dataSource;
-//	}
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(SmsApplication.class, args);
 	}
-//
-//public void run(final String... args){
-//		log.info("####### Datasource infomation: " + dataSource.toString());
-//	JdbcTemplate restTemplate = new JdbcTemplate(dataSource);
-//	restTemplate.execute("SELECT 1");
-//}
+
 
 }
