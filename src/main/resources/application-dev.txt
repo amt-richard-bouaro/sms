@@ -1,0 +1,8 @@
+
+# Configuration for the "dev" profile
+spring:
+  datasource:
+    username: postgres
+    password: root1234
+    url: jdbc:postgresql://0.0.0.0:5432/sms
+

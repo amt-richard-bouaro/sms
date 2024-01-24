@@ -1,0 +1,23 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  env:
+    enabled: true
+
+application:
+  name: spring-sms-app
+  description:
+  author:
+  version:
+
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+
